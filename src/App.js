@@ -30,7 +30,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <h1>Роботуудын хайлт</h1>
+        <h1>Роботын хайлт</h1>
         <SearchBox khailtKhiiye={this.khailtKhiiyee} />
         <CardList robots={filteredRobots} />
       </div>
