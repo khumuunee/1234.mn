@@ -2,20 +2,21 @@ import React, { Component } from "react";
 import "./App.css";
 import { CardList } from "./components/card-list/card-list";
 import { SearchBox } from "./components/search-box/search-box";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      robots: [],
+      surgaltuud: [],
       khailtiinUtga: ""
     };
   }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://1234.mn/api/courses")
       .then((khariu) => khariu.json())
-      .then((urdun) => this.setState({ robots: urdun }));
+      .then((urdun) => this.setState({ surgaltuud: urdun }));
   }
 
   khailtKhiiyee = (event) => {
@@ -23,17 +24,25 @@ export default class App extends Component {
   };
 
   render() {
-    const { robots, khailtiinUtga } = this.state;
-    const filteredRobots = robots.filter((el) =>
-      el.name.toLowerCase().includes(khailtiinUtga)
+    const { surgaltuud, khailtiinUtga } = this.state;
+    const filteredsurgaltuud = surgaltuud.filter((el) =>
+      el.ner.toLowerCase().includes(khailtiinUtga)
     );
 
     return (
-      <div className="App">
-        <h1>Роботын хайлт байна</h1>
-        <SearchBox khailtKhiiye={this.khailtKhiiyee} />
-        <CardList robots={filteredRobots} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Link to="/">Нүүр</Link>
+          <Switch>
+            <Route path="/course/:id" render={() => <h1>Turshij baina</h1>} />
+            <Route path="/">
+              <h1>1234.mn сургалтууд</h1>
+              <SearchBox khailtKhiiye={this.khailtKhiiyee} />
+              <CardList surgaltuud={filteredsurgaltuud} />
+            </Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

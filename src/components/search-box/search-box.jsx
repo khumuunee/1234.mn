@@ -6,7 +6,7 @@ export const SearchBox = (props) => (
   <input
     className="search-box"
     type="search"
-    placeholder="Роботуудаас хайх"
+    placeholder="Сургалтуудаас хайх"
     onChange={props.khailtKhiiye}
   />
 );
