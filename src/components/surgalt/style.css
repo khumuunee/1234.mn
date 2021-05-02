@@ -1,0 +1,16 @@
+.card-container-surgalt {
+  display: flex;
+  flex-direction: column;
+  background-color: #95dada;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.25s ease-out;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.card-container-surgalt img {
+  width: 300px;
+}

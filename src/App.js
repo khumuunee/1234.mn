@@ -3,6 +3,7 @@ import "./App.css";
 import { CardList } from "./components/card-list/card-list";
 import { SearchBox } from "./components/search-box/search-box";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import Surgalt from "./components/surgalt/Surgalt";
 
 export default class App extends Component {
   constructor() {
@@ -34,7 +35,7 @@ export default class App extends Component {
         <div className="App">
           <Link to="/">Нүүр</Link>
           <Switch>
-            <Route path="/course/:id" render={() => <h1>Turshij baina</h1>} />
+            <Route path="/course/:id" component={Surgalt} />
             <Route path="/">
               <h1>1234.mn сургалтууд</h1>
               <SearchBox khailtKhiiye={this.khailtKhiiyee} />
